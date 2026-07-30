@@ -1,0 +1,56 @@
+[
+  {
+    "instance_id": "sympy__sympy-11400",
+    "repo": "sympy/sympy",
+    "base_commit": "8dcb12a6cf500e8738d6729ab954a261758f49ca",
+    "FAIL_TO_PASS_count": 2,
+    "PASS_TO_PASS_count": 29,
+    "patch_lines": 25,
+    "problem_chars": 318
+  },
+  {
+    "instance_id": "sympy__sympy-11870",
+    "repo": "sympy/sympy",
+    "base_commit": "5c2e1f96a7ff562d4a778f4ca9ffc9c81557197e",
+    "FAIL_TO_PASS_count": 1,
+    "PASS_TO_PASS_count": 58,
+    "patch_lines": 32,
+    "problem_chars": 344
+  },
+  {
+    "instance_id": "django__django-10914",
+    "repo": "django/django",
+    "base_commit": "e7fd69d051eaa67cb17f172a39b57253e9cb831a",
+    "FAIL_TO_PASS_count": 1,
+    "PASS_TO_PASS_count": 98,
+    "patch_lines": 13,
+    "problem_chars": 1021
+  },
+  {
+    "instance_id": "django__django-10924",
+    "repo": "django/django",
+    "base_commit": "bceadd2788dc2dad53eba0caae172bd8522fd483",
+    "FAIL_TO_PASS_count": 1,
+    "PASS_TO_PASS_count": 1,
+    "patch_lines": 13,
+    "problem_chars": 822
+  },
+  {
+    "instance_id": "psf__requests-1963",
+    "repo": "psf/requests",
+    "base_commit": "110048f9837f8441ea536804115e80b69f400277",
+    "FAIL_TO_PASS_count": 7,
+    "PASS_TO_PASS_count": 112,
+    "patch_lines": 17,
+    "problem_chars": 673
+  },
+  {
+    "instance_id": "psf__requests-2148",
+    "repo": "psf/requests",
+    "base_commit": "fe693c492242ae532211e0c173324f09ca8cf227",
+    "FAIL_TO_PASS_count": 10,
+    "PASS_TO_PASS_count": 118,
+    "patch_lines": 30,
+    "problem_chars": 2311
+  }
+]

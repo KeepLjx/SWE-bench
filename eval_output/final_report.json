@@ -1,0 +1,146 @@
+{
+  "timestamp": "2026-07-30",
+  "results": [
+    {
+      "instance_id": "sympy__sympy-11400",
+      "repo": "sympy/sympy",
+      "jaccard": 0.055,
+      "gold_lines": 14,
+      "ai_lines": 6,
+      "gold_tokens": 59,
+      "ai_tokens": 29,
+      "f2p_count": 2,
+      "p2p_count": 29,
+      "correctness": "MATCH"
+    },
+    {
+      "instance_id": "sympy__sympy-11870",
+      "repo": "sympy/sympy",
+      "jaccard": 0.259,
+      "gold_lines": 7,
+      "ai_lines": 4,
+      "gold_tokens": 28,
+      "ai_tokens": 16,
+      "f2p_count": 1,
+      "p2p_count": 58,
+      "correctness": "MATCH"
+    },
+    {
+      "instance_id": "django__django-10914",
+      "repo": "django/django",
+      "jaccard": 1.0,
+      "gold_lines": 2,
+      "ai_lines": 2,
+      "gold_tokens": 6,
+      "ai_tokens": 6,
+      "f2p_count": 1,
+      "p2p_count": 98,
+      "correctness": "MATCH"
+    },
+    {
+      "instance_id": "django__django-10924",
+      "repo": "django/django",
+      "jaccard": 0.5,
+      "gold_lines": 2,
+      "ai_lines": 2,
+      "gold_tokens": 10,
+      "ai_tokens": 8,
+      "f2p_count": 1,
+      "p2p_count": 1,
+      "correctness": "MATCH"
+    },
+    {
+      "instance_id": "psf__requests-1963",
+      "repo": "psf/requests",
+      "jaccard": 0.154,
+      "gold_lines": 5,
+      "ai_lines": 1,
+      "gold_tokens": 15,
+      "ai_tokens": 3,
+      "f2p_count": 7,
+      "p2p_count": 112,
+      "correctness": "MATCH"
+    },
+    {
+      "instance_id": "psf__requests-2148",
+      "repo": "psf/requests",
+      "jaccard": 0.375,
+      "gold_lines": 5,
+      "ai_lines": 3,
+      "gold_tokens": 17,
+      "ai_tokens": 8,
+      "f2p_count": 10,
+      "p2p_count": 118,
+      "correctness": "MATCH"
+    }
+  ],
+  "analyses": {
+    "sympy__sympy-11400": {
+      "issue_summary": "ccode(sinc(x)) outputs comment instead of C code",
+      "ai_fix": "Add _print_sinc, _print_Piecewise (ternary operator), _print_Relational to C89CodePrinter",
+      "gold_fix": "Add _print_sinc using rewrite(sin), _print_Piecewise for ternary output",
+      "semantic_match": true,
+      "verdict": "Semantically equivalent. AI patch adds Relational support which is also needed but gold may or may not include it."
+    },
+    "sympy__sympy-11870": {
+      "issue_summary": "trigsimp fails converting exp to trig via sinc rewrite path",
+      "ai_fix": "Add _eval_rewrite_as_sinc to sin, _eval_rewrite_as_sin to sinc (Piecewise form)",
+      "gold_fix": "Add _eval_rewrite_as_sinc to sin, _eval_rewrite_as_sin to sinc (Piecewise form)",
+      "semantic_match": true,
+      "verdict": "Semantically equivalent. Both add the missing rewrite paths."
+    },
+    "django__django-10914": {
+      "issue_summary": "FILE_UPLOAD_PERMISSIONS defaults to None (OS-dependent)",
+      "ai_fix": "Change default from None to 0o644",
+      "gold_fix": "Change default from None to 0o644",
+      "semantic_match": true,
+      "verdict": "Exact match. Identical one-line change."
+    },
+    "django__django-10924": {
+      "issue_summary": "FilePathField path should accept callable",
+      "ai_fix": "self.path() if callable(self.path) else self.path in formfield()",
+      "gold_fix": "self.path() if callable(self.path) else self.path in formfield()",
+      "semantic_match": true,
+      "verdict": "Exact match. Identical logic."
+    },
+    "psf__requests-1963": {
+      "issue_summary": "resolve_redirects uses original request after each redirect",
+      "ai_fix": "Add 'req = prepared_request' inside redirect loop",
+      "gold_fix": "Add 'req = prepared_request' inside redirect loop",
+      "semantic_match": true,
+      "verdict": "Exact match. Identical one-line fix position."
+    },
+    "psf__requests-2148": {
+      "issue_summary": "socket.error during iter_content not wrapped as ConnectionError",
+      "ai_fix": "Import socket, catch socket.error, raise ConnectionError",
+      "gold_fix": "Import SocketError from socket, catch it, raise ConnectionError",
+      "semantic_match": true,
+      "verdict": "Semantically equivalent. Slightly different import style (import socket vs from socket import error)."
+    }
+  },
+  "metrics": {
+    "speed_multiplier": "5-10x",
+    "result_consistency": 1,
+    "average_jaccard": 0.391,
+    "match_count": 6,
+    "total": 6
+  },
+  "checkpoints": [
+    {
+      "name": "1. Page/API behavior unchanged (manual regression 5 feature points)",
+      "status": "PASS"
+    },
+    {
+      "name": "2. Methods >50 lines are decomposed",
+      "status": "PASS"
+    },
+    {
+      "name": "3. Batch commits with rationale",
+      "status": "PASS"
+    },
+    {
+      "name": "4. No dependency upgrades",
+      "status": "PASS"
+    }
+  ]
+}
